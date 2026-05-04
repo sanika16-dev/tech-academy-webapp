@@ -15,7 +15,7 @@ const Courses = () => {
     const fetchCourses = async () => {
       try {
         // ✅ FIXED HERE
-        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+        const apiUrl = import.meta.env.VITE_API_URL || "https://tech-academy-api-8txb.onrender.com";
 
         const response = await axios.get(`${apiUrl}/api/courses`);
         setCourses(response.data);
@@ -36,7 +36,7 @@ const Courses = () => {
 
     try {
       // ✅ FIXED HERE ALSO
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const apiUrl = import.meta.env.VITE_API_URL || 'https://tech-academy-api-8txb.onrender.com';
 
       await axios.post(
         `${apiUrl}/api/courses/enroll`,

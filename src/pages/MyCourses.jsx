@@ -12,8 +12,8 @@ const MyCourses = () => {
   useEffect(() => {
     const fetchMyCourses = async () => {
       try {
-        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
-        const response = await axios.get(`${apiUrl}/courses/my-courses`, {
+        const apiUrl = import.meta.env.VITE_API_URL || 'https://tech-academy-api-8txb.onrender.com';
+        const response = await axios.get(`${apiUrl}/api/courses/my-courses`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setCourses(response.data);

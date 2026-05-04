@@ -15,8 +15,8 @@ const Login = () => {
     e.preventDefault();
     setError('');
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
-      const response = await axios.post(`${apiUrl}/auth/login`, { email, password });
+      const apiUrl = import.meta.env.VITE_API_URL || 'https://tech-academy-api-8txb.onrender.com';
+      const response = await axios.post(`${apiUrl}/api/auth/login`, { email, password });
       login(response.data.token);
       navigate('/my-courses');
     } catch (err) {
