@@ -14,8 +14,10 @@ const Courses = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
-        const response = await axios.get(`${apiUrl}/courses`);
+
+        const apiUrl = import.meta.env.VITE_API_URL;
+
+        const response = await axios.get(`${apiUrl}/api/courses`);
         setCourses(response.data);
       } catch (err) {
         setError('Failed to fetch courses');
@@ -33,10 +35,13 @@ const Courses = () => {
     }
 
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
-      await axios.post(`${apiUrl}/courses/enroll`, { courseId }, {
+
+      const apiUrl = import.meta.env.VITE_API_URL;
+
+      await axios.post(`${apiUrl}/api/courses/enroll`, { courseId }, {
         headers: { Authorization: `Bearer ${token}` }
       });
+
       alert('Successfully enrolled!');
       navigate('/my-courses');
     } catch (err) {
